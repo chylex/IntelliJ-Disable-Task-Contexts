@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "com.chylex.intellij.disabletaskcontexts"
-version = "0.0.1"
+version = "1.0.0"
 
 repositories {
 	mavenCentral()
