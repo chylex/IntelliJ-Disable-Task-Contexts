@@ -1,0 +1,12 @@
+<idea-plugin>
+  <id>com.chylex.intellij.disabletaskcontexts.DisableTaskContexts</id>
+  <name>Disable Task Contexts</name>
+  <vendor url="https://chylex.com">chylex</vendor>
+  
+  <description><![CDATA[
+    Disables saving and loading context in tasks, and restoring workspace when switching VCS branches.<br>
+    This plugin works by unregistering everything that saves workspace context. It does not change any settings related to context tracking or workspace restoration.
+  ]]></description>
+  
+  <depends>com.intellij.modules.platform</depends>
+</idea-plugin>
