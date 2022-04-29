@@ -9,4 +9,12 @@
   ]]></description>
   
   <depends>com.intellij.modules.platform</depends>
+  
+  <applicationListeners>
+    <listener class="com.chylex.intellij.disabletaskcontexts.PluginLoadListener" topic="com.intellij.ide.plugins.DynamicPluginListener" />
+  </applicationListeners>
+  
+  <extensions defaultExtensionNs="com.intellij">
+    <postStartupActivity implementation="com.chylex.intellij.disabletaskcontexts.PluginStartup" />
+  </extensions>
 </idea-plugin>
