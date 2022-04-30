@@ -1,6 +1,7 @@
 package com.chylex.intellij.disabletaskcontexts
 
 import com.intellij.openapi.diagnostic.Logger
+import com.intellij.openapi.extensions.ExtensionPoint
 import com.intellij.tasks.context.WorkingContextProvider
 
 object WorkingContextExtensionChangeListener : Runnable {
@@ -22,13 +23,17 @@ object WorkingContextExtensionChangeListener : Runnable {
 					logger.info("Unregistered task context providers.")
 				}
 				else {
-					logger.error("Failed unregistering task context providers.")
+					logUnregisteringError(point)
 				}
 			} catch (e: Exception) {
-				logger.error("Failed unregistering task context providers.", e)
+				logUnregisteringError(point, e)
 			} finally {
 				isRunning = false
 			}
 		}
+	}
+	
+	private fun logUnregisteringError(point: ExtensionPoint<WorkingContextProvider>, exception: Exception? = null) {
+		logger.error("Failed unregistering task context providers. Remaining providers:\n" + point.extensions.joinToString("\n") { '\t' + it.javaClass.canonicalName }, exception)
 	}
 }
