@@ -8,6 +8,12 @@
     This plugin works by unregistering everything that saves workspace context. It does not change any settings related to context tracking or workspace restoration.
   ]]></description>
   
+  <change-notes><![CDATA[
+    <ul>
+      <li>Fixed breaking IntelliJ's dynamic plugin unloading.</li>
+    </ul>
+  ]]></change-notes>
+  
   <depends>com.intellij.modules.platform</depends>
   
   <applicationListeners>
